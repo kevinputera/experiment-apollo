@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const App: React.FC = () => {
-  return <div>Todo Apollo</div>;
-};
+import { ApolloProvider } from "@apollo/react-hooks";
+import { client } from "./client";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import { TodosContainer } from "./components/TodosContainer";
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <TodosContainer />
+  </ApolloProvider>,
+  document.getElementById("root")
+);
