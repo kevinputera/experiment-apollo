@@ -4,10 +4,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import { Todo as TodoEntity } from "../entities";
 
-import { TodoAddBar } from "./TodoAddBar";
+import { TodoCreateBar } from "./TodoCreateBar";
 import { Todo } from "./Todo";
 
-const GET_TODOS = gql`
+export const GET_TODOS = gql`
   query GetTodos {
     todos {
       id
@@ -17,7 +17,7 @@ const GET_TODOS = gql`
   }
 `;
 
-interface TodosData {
+export interface TodosData {
   todos: TodoEntity[];
 }
 
@@ -31,9 +31,9 @@ export const TodosContainer: React.FC = () => {
   }
   return (
     <div>
-      <TodoAddBar />
+      <TodoCreateBar />
       {data!.todos.map((todo: TodoEntity) => (
-        <Todo {...todo} />
+        <Todo key={todo.id} {...todo} />
       ))}
     </div>
   );

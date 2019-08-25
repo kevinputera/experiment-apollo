@@ -4,7 +4,8 @@ import { Todo as TodoEntity } from "../entities";
 export const Todo: React.FC<TodoEntity> = ({ id, text, completed }) => {
   return (
     <div>
-      <span>{id}</span> <span>{text}</span>
+      <span>{id}</span>&nbsp;
+      <span>{text}</span>
     </div>
   );
 };
